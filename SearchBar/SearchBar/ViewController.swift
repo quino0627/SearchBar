@@ -32,7 +32,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         deviceArray.append(DeviceModel(deviceName: "GalaxyNote 9", companyName: .Samsung))
         deviceArray.append(DeviceModel(deviceName: "iPhone SE", companyName: .Apple))
         deviceArray.append(DeviceModel(deviceName: "iPhone 8S", companyName: .Apple))
+        deviceArray.append(DeviceModel(deviceName: "G6", companyName: .LG))
+        deviceArray.append(DeviceModel(deviceName: "V30", companyName: .LG))
+        deviceArray.append(DeviceModel(deviceName: "iPhone 8", companyName: .Apple))
+        deviceArray.append(DeviceModel(deviceName: "iPhone 7S", companyName: .Apple))
+        deviceArray.append(DeviceModel(deviceName: "iPhone 7", companyName: .Apple))
+        deviceArray.append(DeviceModel(deviceName: "iPhone 3GS", companyName: .Apple))
         
+        //set default value
         currentDeviceArray = deviceArray
     }
     //Setup SearchBar && Scope
@@ -78,6 +85,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //***********TABLE FUNCTION FINISHED**************
     
+    
+    
+    
+    //**************SEARCH****************
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterForText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterForText(searchController.searchBar.text!, scope: scope)
+    }
+    
+    //************SEARCH FINISHED*************
+    
+    
+    //***************Some More Functions****************
     func filterForText(_ searchText: String, scope: String = "All"){
         currentDeviceArray = deviceArray.filter({ (device : DeviceModel) -> Bool in
             let doesCategoryMatch = (scope == "All") || (device.companyName.rawValue == scope)
@@ -93,21 +118,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBarIsEmpty() -> Bool {
-        return (searchController.searchBar.text?.isEmpty)!
+        return searchController.searchBar.text?.isEmpty ?? true
     }
-    
-    //**************SEARCH****************
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterForText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterForText(searchController.searchBar.text!, scope: scope)
-    }
-    
-    //************SEARCH FINISHED*************
     
     
 //    override func didReceiveMemoryWarning() {
