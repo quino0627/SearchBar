@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Setup SearchBar && Scope
     private func setUpSearchController(){
         //Setup SearchBar
-        searchController.searchResultsUpdater = self as? UISearchResultsUpdating
+        searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Smartphones"
         navigationItem.searchController = searchController
@@ -78,7 +78,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     //***********TABLE FUNCTION FINISHED**************
     
-    func simplefunction(_ searchText: String, scope: String = "All"){
+    func filterForText(_ searchText: String, scope: String = "All"){
         currentDeviceArray = deviceArray.filter({ (device : DeviceModel) -> Bool in
             let doesCategoryMatch = (scope == "All") || (device.companyName.rawValue == scope)
             if(searchBarIsEmpty()){
@@ -93,21 +93,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBarIsEmpty() -> Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
+        return (searchController.searchBar.text?.isEmpty)!
     }
     
     //**************SEARCH****************
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        simplefunction(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+        filterForText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        simplefunction(searchController.searchBar.text!, scope: scope)
+        filterForText(searchController.searchBar.text!, scope: scope)
     }
-    
-    
     
     //************SEARCH FINISHED*************
     
