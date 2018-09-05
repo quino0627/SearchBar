@@ -13,8 +13,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
-    var deviceArray = [DeviceModel]()
-    var currentDeviceArray = [DeviceModel]() //update table
+    var deviceArray = [DeviceModel]() //default Array
+    var currentDeviceArray = [DeviceModel]() //Array for display
     let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
@@ -60,8 +60,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //************SETUP FINISHED***************
     
+/*
+     Delegate를 사용 할 때, 위 Class처럼 관련 프로토콜들을 채택하여 사용할 수도 있지만,
+     다음 주석처리된 코드와 같이 class extension(확장)을 이용하여 코드 분리화를 할 수 있습니다 :)
+     다음과 같이 작성된 코드 예제는 ExtensionSample Branch에 작성될 예정입니다.
+     //     extension TableViewController: UITableViewDataSource {
+     //     func tableView(_ tableView: UITableView,
+     //     numberOfRowsInSection section: Int) -> Int {
+     //     return self.items.count
+     //     }
+     //
+     //     func tableView(_ tableView: UITableView,
+     //     cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     //     let cell: UITableViewCell = tableView.dequeueReusableCell
+     //     (withIdentifier: "RowCell")! as UITableViewCell
+     //
+     //     cell.textLabel?.text = items[indexPath.row]
+     //
+     //     return cell
+     //     }
+     //     }
+ */
     
-    //*********TABLE FUNCTION*************
+    
+    
+    //*********TABLE FUNCTION(Delegate)*************
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
 //        let isFiltering = searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
@@ -88,7 +111,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    //**************SEARCH****************
+    //**************SEARCH(Delegate)****************
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         filterForText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
@@ -98,11 +121,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         filterForText(searchController.searchBar.text!, scope: scope)
     }
-    
     //************SEARCH FINISHED*************
     
     
     //***************Some More Functions****************
+    
+    //A function that stores the result of filtering the DeviceArray in the currentDeviceArray according to the text and scope input.
     func filterForText(_ searchText: String, scope: String = "All"){
         currentDeviceArray = deviceArray.filter({ (device : DeviceModel) -> Bool in
             let doesCategoryMatch = (scope == "All") || (device.companyName.rawValue == scope)
@@ -130,4 +154,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 
 }
+
+
 
