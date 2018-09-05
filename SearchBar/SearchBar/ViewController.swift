@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var deviceArray = [DeviceModel]() //default Array
     var currentDeviceArray = [DeviceModel]() //Array for display
+    //declare property
     let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
@@ -96,6 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RowCell") as? TableCell else {
+            //You can see "RowCeell" at Storboard, identifier of cell
             return UITableViewCell()
         }
         cell.titleLabel.text = currentDeviceArray[indexPath.row].deviceName
@@ -124,8 +126,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //************SEARCH FINISHED*************
     
     
-    //***************Some More Functions****************
     
+    //***************Some More Functions****************
     //A function that stores the result of filtering the DeviceArray in the currentDeviceArray according to the text and scope input.
     func filterForText(_ searchText: String, scope: String = "All"){
         currentDeviceArray = deviceArray.filter({ (device : DeviceModel) -> Bool in
@@ -141,6 +143,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    //self-explanatory
     func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
