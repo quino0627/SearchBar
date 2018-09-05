@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
+class ViewController: UIViewController,  UISearchBarDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -84,44 +84,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    //*********TABLE FUNCTION(Delegate)*************
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
-//        let isFiltering = searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
-//        if isFiltering{
-//            return currentDeviceArray.count
-//        }
-        return currentDeviceArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RowCell") as? TableCell else {
-            return UITableViewCell()
-        }
-        cell.titleLabel.text = currentDeviceArray[indexPath.row].deviceName
-        cell.categoryLabel.text = currentDeviceArray[indexPath.row].companyName.rawValue
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    //***********TABLE FUNCTION FINISHED**************
     
     
     
     
-    //**************SEARCH(Delegate)****************
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterForText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterForText(searchController.searchBar.text!, scope: scope)
-    }
-    //************SEARCH FINISHED*************
     
     
     //***************Some More Functions****************
@@ -155,5 +121,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 }
 
+extension ViewController : UITableViewDelegate, UITableViewDataSource{
+    //*********TABLE FUNCTION(Delegate)*************
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentDeviceArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RowCell") as? TableCell else {
+            return UITableViewCell()
+        }
+        cell.titleLabel.text = currentDeviceArray[indexPath.row].deviceName
+        cell.categoryLabel.text = currentDeviceArray[indexPath.row].companyName.rawValue
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    //***********TABLE FUNCTION FINISHED**************
+    
+}
+
+extension ViewController : UISearchResultsUpdating{
+    //**************SEARCH(Delegate)****************
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterForText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterForText(searchController.searchBar.text!, scope: scope)
+    }
+    //************SEARCH FINISHED*************
+    
+}
 
 
