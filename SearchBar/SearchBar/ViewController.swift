@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 /*
      Delegate를 사용 할 때, 위 Class처럼 관련 프로토콜들을 채택하여 사용할 수도 있지만,
-     다음 주석처리된 코드와 같이 class extension(확장)을 이용하여 코드 분리화를 할 수 있습니다 :)
+     다음 주석처리된 코드와 같이 클래스 아래에 extension(확장)을 이용하여 코드 분리화를 할 수 있습니다 :)
      다음과 같이 작성된 코드 예제는 ExtensionSample Branch에 작성될 예정입니다.
      //     extension TableViewController: UITableViewDataSource {
      //     func tableView(_ tableView: UITableView,
