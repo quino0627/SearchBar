@@ -87,11 +87,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //*********TABLE FUNCTION(Delegate)*************
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
-//        let isFiltering = searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
-//        if isFiltering{
-//            return currentDeviceArray.count
-//        }
         return currentDeviceArray.count
     }
     
