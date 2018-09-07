@@ -23,6 +23,10 @@ by. DongWook Song
 - starterpack :Search bar과 관련된 코드가 없는 가지입니다. dynamic table 과 안의 Model data가 구현되어 있습니다.
 
 ## 다루는 것
+- dynamic table 
+- filter
+- UISearchBarDelegate
+- UISearchResultsUpdating Delegate
 
 
 ## 시작하기
@@ -33,12 +37,36 @@ by. DongWook Song
 - 동적 테이블에 사용되는 Delegate들을 이해하고 있다.
 - 모델을 NSObject 파일을 통하여 작성할 수 있다.
 
-### STEP 1. 검색에 사용 될 테이블 뷰, 모델 생성하기 Create a dynamic table view and model to be used for search
+### STEP 1. 검색에 사용 될**테이블 뷰, 모델** 생성하기 Create a dynamic table view and model to be used for search
 스타터 팩을 다운로드 받은 채로 시작한다면 STEP 1을 건너뛰고 바로 STEP 2 로 이동할 수 있습니다.
+검색은 대부분의 경우에서 테이블에 있는 항목들을 검색하기 위해 사용됩니다. 즉, 검색을 구현하기 위해 선행되어야 하는 작업으로 테이블을 만들어야 합니다. 우리는 **동적 테이블 뷰**를 사용할 것입니다.
+1. 스토리 보드 작업
+    - 뷰 컨트롤러에 테이블 뷰 추가
+    - 테이블 뷰에 Table View Cell 추가
+    - Table View Cell Height, identifier, 셀 형태 설정
+    - Table View에 constrain주기
+2. 코드 작업 - 모델
+    - Model 이라는 명의 Group 생성하기
+    - NSObject 를 superclass로 하는 class 파일 생성하여 테이블에 표시할 모델 작성하기
+    - NSObject instance를 ViewController에 배열로 생성하기
+3. 코드 작업 - 테이블
+    - View Controller 에 table 관련 protocol 채택
+    - 핵심인 두 가지의 함수의 역할 설명하기
+    - UITableViewCell을 super class 로 하는 class 파일 생성하여 IBOutlet 연결하기
+    - Delegate 함수를 모델 배열을 이용하여 작성하기
+    
+
 ### STEP 2. 화면에 검색 바 띄우기  Search bar on the screen
-### STEP 3. 실제로 검색을 작동하게 하는 방법 -  Delagate Letting search actually work - Delegate
-### STEP 4. Delegate 이해하기  Understanding the Delegate
-### STEP 5-0. 코드 작성하기
-### STEP 5-1. delegate 관련 코드 작성
-### STEP 5-2. filtering을 통한 체 함수 만들기 Creating a sieve function through filtering
-### STEP 6. (선택) extension의 사용  (Optional) Using the extension
+우리는 search bar를 Table 내부가 아닌 Navigation bar에 합쳐진 형태로 구현할 것입니다.
+구현한 후 실행시키면 스크린 상에 정상적으로 나타나지만, 실질적으로 검색이 동작하지 않습니다. 
+
+### STEP 3. 실제로 검색을 작동하게 하는 방법 -  Delegate 이해하기 Letting search actually work - Understanding the Delegate
+설명
+### STEP 4-0. 코드 작성하기 Writing a little bit of code
+#### STEP 4-1. delegate 관련 코드 작성 Writing delagate related code
+1. 프로토콜 채택 작업
+2. 관련 함수에 대한 설명,작성
+#### STEP 4-2. filtering을 통한 체 함수 만들기 Creating a sieve function through filtering
+1. filter을 이용하여 검색어에 따른 결과값을 걸러 주는 함수를 작성한다.
+### STEP 5. (선택) extension의 사용  (Optional) Using the extension
+1. extension의 사용법을 배운다.
