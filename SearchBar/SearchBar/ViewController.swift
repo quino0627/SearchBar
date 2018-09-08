@@ -13,15 +13,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+    var sendDelegate : SendDataDelegate?
+    
     var deviceArray = [DeviceModel]() //default Array
     var currentDeviceArray = [DeviceModel]() //Array for display
     //declare property
-    let searchController = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: TableViewController())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDeviceInfo()
         setUpSearchController()
+        print("asdfasf")
     }
 
     //**************SETUP*****************
@@ -114,6 +117,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         filterForText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
         print("This function is executed when the category changes!")
         print(searchBar.scopeButtonTitles![selectedScope])
+        sendDelegate?.sendData(data:currentDeviceArray)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -122,6 +126,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         filterForText(searchController.searchBar.text!, scope: scope)
         print("This function is executed every time a character is typed!")
         print(scope)
+        sendDelegate?.sendData(data:currentDeviceArray)
     }
     //************SEARCH FINISHED*************
     
@@ -159,5 +164,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 }
 
+protocol SendDataDelegate {
+    func sendData(data:Array<DeviceModel>)
+}
 
 

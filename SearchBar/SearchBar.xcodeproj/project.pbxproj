@@ -14,6 +14,8 @@
 		510ABF33213E642E00289419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510ABF31213E642E00289419 /* LaunchScreen.storyboard */; };
 		510ABF3C213E666900289419 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510ABF3B213E666900289419 /* DeviceModel.swift */; };
 		510ABF3E213E66A200289419 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510ABF3D213E66A100289419 /* TableCell.swift */; };
+		DA0F00D52144154500DC65A1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F00D42144154500DC65A1 /* TableViewController.swift */; };
+		DA0F00D72144173000DC65A1 /* TableCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0F00D62144173000DC65A1 /* TableCell2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		510ABF34213E642E00289419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		510ABF3B213E666900289419 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		510ABF3D213E66A100289419 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		DA0F00D42144154500DC65A1 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		DA0F00D62144173000DC65A1 /* TableCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				510ABF28213E642D00289419 /* AppDelegate.swift */,
 				510ABF2A213E642D00289419 /* ViewController.swift */,
 				510ABF2C213E642D00289419 /* Main.storyboard */,
+				DA0F00D62144173000DC65A1 /* TableCell2.swift */,
+				DA0F00D42144154500DC65A1 /* TableViewController.swift */,
 				510ABF3D213E66A100289419 /* TableCell.swift */,
 				510ABF2F213E642E00289419 /* Assets.xcassets */,
 				510ABF31213E642E00289419 /* LaunchScreen.storyboard */,
@@ -150,8 +156,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				510ABF2B213E642D00289419 /* ViewController.swift in Sources */,
+				DA0F00D72144173000DC65A1 /* TableCell2.swift in Sources */,
 				510ABF29213E642D00289419 /* AppDelegate.swift in Sources */,
 				510ABF3E213E66A200289419 /* TableCell.swift in Sources */,
+				DA0F00D52144154500DC65A1 /* TableViewController.swift in Sources */,
 				510ABF3C213E666900289419 /* DeviceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
