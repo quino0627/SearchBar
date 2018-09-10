@@ -1,5 +1,5 @@
 # 검색창 만들기
-by. DongWook Song
+by 송 동욱
 ## 시작하기에 앞서
 
 - 검색할 데이터를 동적 테이블 뷰에 표시함.
@@ -8,6 +8,8 @@ by. DongWook Song
 - Scope 설정을 하여 그에 따른 값이 출력된다.
 - SearchBar는 네비게이션 바와 통합되어 있다
 - SearchBar는 숨겨져 있다 나타난다
+
+## 순서
 
 1. Search Bar on HIG
 2. Search Bar on Developer Guidance
