@@ -16,7 +16,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var deviceArray = [DeviceModel]() //default Array
     var currentDeviceArray = [DeviceModel]() //Array for display
     //declare property
-    let searchController = UISearchController(searchResultsController: ResultViewController())
+    
+    var resultsController : UITableViewController!
+    var searchController : UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +47,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Setup SearchBar && Scope
     private func setUpSearchController(){
         //Setup SearchBar
+        resultsController = UITableViewController(style: .plain)
+        resultsController.tableView.dataSource = self
+        resultsController.tableView.delegate = self
+        
+        searchController = UISearchController(searchResultsController: resultsController)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Smartphones"
         searchController.dimsBackgroundDuringPresentation = true
-        searchController.searchBar.sizeToFit()
+        //searchController.searchBar.sizeToFit()
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
@@ -62,49 +69,52 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //************SETUP FINISHED***************
-    
-/*
-     Delegate를 사용 할 때, 위 Class처럼 관련 프로토콜들을 채택하여 사용할 수도 있지만,
-     다음 주석처리된 코드와 같이 class extension(확장)을 이용하여 코드 분리화를 할 수 있습니다 :)
-     
-     다음과 같이 작성된 코드 예제는 ExtensionSample Branch에 작성되어 있습니다!
-     //     extension TableViewController: UITableViewDataSource {
-     //     func tableView(_ tableView: UITableView,
-     //     numberOfRowsInSection section: Int) -> Int {
-     //     return self.items.count
-     //     }
-     //
-     //     func tableView(_ tableView: UITableView,
-     //     cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     //     let cell: UITableViewCell = tableView.dequeueReusableCell
-     //     (withIdentifier: "RowCell")! as UITableViewCell
-     //
-     //     cell.textLabel?.text = items[indexPath.row]
-     //
-     //     return cell
-     //     }
-     //     }
- */
-    
+
     
     
     //*********TABLE FUNCTION(Delegate)*************
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentDeviceArray.count
+        print(currentDeviceArray)
+        if(tableView == self.tableView){
+            return deviceArray.count
+        }
+        else{
+            return currentDeviceArray.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RowCell") as? TableCell else {
-            //You can see "RowCell" at Storboard, identifier of cell
+        var cellIdentifier: String
+        var dic : DeviceModel!
+        if(tableView == self.tableView){
+            print("DeviceCell")
+            cellIdentifier = "DeviceCell"
+            dic = self.deviceArray[indexPath.row]
+        }
+        else{
+            print("CurrentDeviceCEll")
+            cellIdentifier = "CurrentDeviceCell"
+            print("dic.companyName")
+            dic = self.currentDeviceArray[indexPath.row]
+        }
+        
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TableCell else {
             return UITableViewCell()
         }
-        cell.titleLabel.text = currentDeviceArray[indexPath.row].deviceName
-        cell.categoryLabel.text = currentDeviceArray[indexPath.row].companyName.rawValue
+        cell.titleLabel.text = dic.deviceName
+        cell.categoryLabel.text = dic.companyName.rawValue
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        if (tableView == self.tableView) {
+            return 70
+        }
+        else{
+            return 140
+        }
     }
     //***********TABLE FUNCTION FINISHED**************
     

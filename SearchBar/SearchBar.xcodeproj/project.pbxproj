@@ -14,7 +14,6 @@
 		510ABF33213E642E00289419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510ABF31213E642E00289419 /* LaunchScreen.storyboard */; };
 		510ABF3C213E666900289419 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510ABF3B213E666900289419 /* DeviceModel.swift */; };
 		510ABF3E213E66A200289419 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510ABF3D213E66A100289419 /* TableCell.swift */; };
-		DAB2B6C021468403006C55F8 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB2B6BF21468403006C55F8 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		510ABF34213E642E00289419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		510ABF3B213E666900289419 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		510ABF3D213E66A100289419 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
-		DAB2B6BF21468403006C55F8 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 				510ABF3A213E665C00289419 /* Model */,
 				510ABF28213E642D00289419 /* AppDelegate.swift */,
 				510ABF2A213E642D00289419 /* ViewController.swift */,
-				DAB2B6BF21468403006C55F8 /* ResultViewController.swift */,
 				510ABF2C213E642D00289419 /* Main.storyboard */,
 				510ABF3D213E66A100289419 /* TableCell.swift */,
 				510ABF2F213E642E00289419 /* Assets.xcassets */,
@@ -152,7 +149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB2B6C021468403006C55F8 /* ResultViewController.swift in Sources */,
 				510ABF2B213E642D00289419 /* ViewController.swift in Sources */,
 				510ABF29213E642D00289419 /* AppDelegate.swift in Sources */,
 				510ABF3E213E66A200289419 /* TableCell.swift in Sources */,
