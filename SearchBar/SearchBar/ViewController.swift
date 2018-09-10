@@ -16,14 +16,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var deviceArray = [DeviceModel]() //default Array
     var currentDeviceArray = [DeviceModel]() //Array for display
     //declare property
-    let searchController = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: ResultViewController())
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDeviceInfo()
         setUpSearchController()
+        
     }
-
     //**************SETUP*****************
     
     //Setup Data
@@ -39,7 +39,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         deviceArray.append(DeviceModel(deviceName: "iPhone 7S", companyName: .Apple))
         deviceArray.append(DeviceModel(deviceName: "iPhone 7", companyName: .Apple))
         deviceArray.append(DeviceModel(deviceName: "iPhone 3GS", companyName: .Apple))
-        
         //set default value
         currentDeviceArray = deviceArray
     }
@@ -49,7 +48,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Smartphones"
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.searchBar.sizeToFit()
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
         definesPresentationContext = true
         
         //Setup Scope

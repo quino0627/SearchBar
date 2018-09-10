@@ -12,21 +12,14 @@ by. DongWook Song
 - Scope 설정을 하여 그에 따른 값이 출력된다.
 - SearchBar는 네비게이션 바와 통합되어 있다
 - SearchBar는 숨겨져 있다 나타난다
-- Delegate의 이해를 돕기 위하여 작성되었다
-- Filter 을 사용한다.
 
-## 브랜치 소개
-이 repository는 사용자의 이해를 돕기 위한 몇 가지 브랜치를 생성하였습니다.
-그에 따른 각각의 간략한 소개는 다음과 같습니다.
-- master :핵심 구현사항이 모두 구현되어 있는 가지입니다. 
-- ExtensionSample : Delegate의 추가적인 이해를 돕기 위한 가지로, delegate와 관련된 protocol을 extension을 통해서 구현하였습니다.
-- starterpack :Search bar과 관련된 코드가 없는 가지입니다. dynamic table 과 안의 Model data가 구현되어 있습니다.
-
-## 다루는 것
-- dynamic table 
-- filter
-- UISearchBarDelegate
-- UISearchResultsUpdating Delegate
+1. Search Bar on HIG
+2. Search Bar on Developer Guidance
+3. Search와 관련한 클래스, 프로토콜
+4. SearchBar를 구현하는 방법(UISearchBar로 직접 작업하기와 UISearchController를 사용하기)
+5. UISearchController를 사용하는 이유
+    - ios8+부터 지원하는 기능
+    - 
 
 
 ## 시작하기

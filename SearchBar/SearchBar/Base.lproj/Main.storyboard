@@ -75,6 +75,33 @@
             </objects>
             <point key="canvasLocation" x="1102" y="791"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="XLw-7e-Edg">
+            <objects>
+                <viewController id="nzG-Zt-gWi" customClass="ResultViewController" customModule="SearchBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FCY-kq-NOc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ResultView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIE-La-hqT">
+                                <rect key="frame" x="145" y="323" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nIE-La-hqT" firstAttribute="centerX" secondItem="FCY-kq-NOc" secondAttribute="centerX" id="Vcp-qZ-cqN"/>
+                            <constraint firstItem="nIE-La-hqT" firstAttribute="centerY" secondItem="FCY-kq-NOc" secondAttribute="centerY" id="vbW-Cs-rKv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gJp-Nb-fTm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aam-8s-khg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824.8" y="1312.8935532233884"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cyw-CF-sT9">
             <objects>
