@@ -12,6 +12,7 @@ by. DongWook Song
 1. Search Bar on HIG
 2. Search Bar on Developer Guidance
 3. Search와 관련한 클래스, 프로토콜
+    - 관련된 protocol, class 그림으로 정리
 4. SearchBar를 구현하는 방법(UISearchBar로 직접 작업하기와 UISearchController를 사용하기)
 5. UISearchController를 사용하는 이유
 6. 스토리보드 작업
