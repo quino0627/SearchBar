@@ -12,13 +12,34 @@ by 송 동욱
 ## 순서
 
 1. Search Bar on HIG
-2. Search Bar on Developer Guidance
-3. Search와 관련한 클래스, 프로토콜
-    - 관련된 protocol, class 그림으로 정리
-4. SearchBar를 구현하는 방법(UISearchBar로 직접 작업하기와 UISearchController를 사용하기)
-5. UISearchController를 사용하는 이유
-6. 스토리보드 작업
-7. programmatic
+
+- Search Bar는 값들의 모음에서 검색을 하기 위해 사용됩니다.
+- Search Bar는 단독, navigation bar 혹은 content view에 나타날 수 있습니다.
+- "search 기능을 추가할 때 text field 대신에 search bar를 사용하여야 합니다."
+- "Clear button을 사용 가능하게 해야 합니다."
+- "Cancel button을 적절한 때에 사용 가능하게 해야 합니다."
+- "필요하다면, 검색창에 힌트와 맥락을 제공해야 합니다."
+- "검색 창 아래에 유용한 바로 가기와 같은 컨텐츠 제공을 고려해야 합니다." 
+- Scope Bars - 이것을 이용하여 검색 결과를 개선하는 것이 좋습니다.
+
+2. SearchBar를 구현하는 방법
+    - 직접적으로 <span style = "color : red" >UISearchBar</span>를 이용하는 방법
+    
+    UISearchBar를 직접 이용하는 방법으로 search bar를 구현할 수 있습니다. 이것은 텍스트 입력을 위한 텍스트 필드, 검색 버튼, 북마크 버튼, 취소 버튼, 이 개체는 실제로 검색을 수행하지 않기 때문에, 대리자를 이용하여 이를 구현해야 합니다. 텍스트가 입력되고 버튼이 클릭되는 이벤트를 다루기 위해 "UISearchBarDelegate" delegate를 채택하여 사용합니다.
+    이 방법은 검색 바를 커스터마이즈하여 사용하는 데 좋습니다. 하지만 여러 built in 기능을 제공하지 않습니다.
+    
+    - <span style = "color : red">UISearchController</span>를 이용하여 구현하는 방법
+    
+    이 방법은  ios 8+ 에서 지원하는 방법으로 , 새로운 컨트롤러인  UISearchController를 사용합니다 이 방법은 검색 결과를 다른 어떤 뷰에든지 표시하여 검색 인터페이스를 표시할 수 있습니다.
+    
+    이 블로그에서는 UISearchController를 이용하여 search bar를 구현하는 방법에 대해 서술할 것입니다.
+    UISearchController는  검색 결과가 표시되는 방법을 지정할 수 있습니다. 또한 검색에 필요한 인터페이스를 제공하며 그 과정의 몇 애니메이션과 논리를 제공합니다.
+    
+3. 구현 전에 
+이 방법은 스토리보드에서 작업하는 방법을 제공하지 않습니다. 우리는 코드를 작성함으로써 search bar를 구현합니다. UISearchBar을 만들고 search controller의 속성들을 UISearchBar에 전달합니다. 그리고 이 search Bar를 view에 추가할 수 있습니다. 이 과정은 모두 programmatically 하게 진행됩니다.
+    
+4. 스토리보드 작업
+5. programmatic
     - set properties & Model Data
     - UITableViewDelegate, UITableViewDataSource
     - searchController & resultsContainer setUp
