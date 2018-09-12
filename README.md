@@ -9,7 +9,8 @@ by 송 동욱
 - SearchBar는 네비게이션 바와 통합되어 있다
 - SearchBar는 숨겨져 있다 나타난다
 
-## 순서
+## 예제 어플리케이션
+
 
 1. Search Bar on HIG
 
