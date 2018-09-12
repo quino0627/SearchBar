@@ -30,7 +30,7 @@ by 송 동욱
     
     - <span style = "color : red">UISearchController</span>를 이용하여 구현하는 방법
     
-    이 방법은  ios 8+ 에서 지원하는 방법으로 , 새로운 컨트롤러인  UISearchController를 사용합니다 이 방법은 검색 결과를 다른 어떤 뷰에든지 표시하여 검색 인터페이스를 표시할 수 있습니다.
+    이 방법은  ios8 이상에서 지원하는 방법으로 , 새로운 컨트롤러인  UISearchController를 사용합니다 이 방법은 검색 결과를 다른 어떤 뷰에든지 표시하여 검색 인터페이스를 표시할 수 있습니다.
     
     이 블로그에서는 UISearchController를 이용하여 search bar를 구현하는 방법에 대해 서술할 것입니다.
     UISearchController는  검색 결과가 표시되는 방법을 지정할 수 있습니다. 또한 검색에 필요한 인터페이스를 제공하며 그 과정의 몇 애니메이션과 논리를 제공합니다.
@@ -40,9 +40,45 @@ by 송 동욱
     
 4. 스토리보드 작업
 5. programmatic
-    - set properties & Model Data
+    - setUp & Model Data
+    ```{.swift}
+    import UIKit
+    
+    class DeviceModel: NSObject {
+    var deviceName:String
+    var companyName:companyType
+    
+    
+    init(deviceName: String, companyName: companyType) {
+    self.deviceName = deviceName
+    self.companyName = companyName
+    }
+    }
+    
+    enum companyType:String {
+    case Samsung = "Samsung"
+    case Apple = "Apple"
+    case LG = "LG"
+    }
+
+    ```
+    ```{.swift}
+    setUpDeviceInfo()
+    setUpResultsController()
+    setUpSearchController()
+    ```
+    
+    ResultView와 SearchBar SetUp을 구현합니다.
+    검색에 사용될 데이터를 제작합니다.
+    
     - UITableViewDelegate, UITableViewDataSource
+    
+    제작한 모델을 테이블에 뿌리는 작업을 합니다.
+    
     - searchController & resultsContainer setUp
+    
+    검색이 실질적으로 
+    
     - UISearchBarDelegate & UIResultsUpdating
     - filter function
     - showing results on screen
