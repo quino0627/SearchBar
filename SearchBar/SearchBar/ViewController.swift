@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         deviceArray.append(DeviceModel(deviceName: "iPhone 7", companyName: .Apple))
         deviceArray.append(DeviceModel(deviceName: "iPhone 3GS", companyName: .Apple))
         //set default value
-        currentDeviceArray = deviceArray
+//        currentDeviceArray = deviceArray
     }
     
     private func setUpResultsController(){
@@ -56,7 +56,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Setup SearchBar
         searchController = UISearchController(searchResultsController: resultsController)
         searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Smartphones"
         searchController.dimsBackgroundDuringPresentation = true
         navigationItem.searchController = searchController
