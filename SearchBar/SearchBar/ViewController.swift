@@ -67,14 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if(tableView == self.tableView){
-            return deviceArray.count
-        }
-        else{
-            return currentDeviceArray.count
-        }
-        
+        return tableView == self.tableView ? deviceArray.count : currentDeviceArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,12 +91,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (tableView == self.tableView) {
-            return 70
-        }
-        else{
-            return 140
-        }
+        return tableView == self.tableView ? 70 : 140
     }
     
     
